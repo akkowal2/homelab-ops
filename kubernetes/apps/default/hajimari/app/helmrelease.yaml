@@ -32,12 +32,18 @@ spec:
       showGreeting: false
       showAppGroups: true
       showAppStatus: true
-      showBookmarkGroups: false
+      showBookmarkGroups: true
       showGlobalBookmarks: false
       showAppUrls: false
       defaultEnable: true
       namespaceSelector:
         any: true
+      bookmarks:
+        - group: Infrastructure
+          bookmarks:
+            - name: Proxmox
+              icon: simple-icons:proxmox
+              url: https://pve1.drewk.org
     ingress:
       main:
         enabled: true
