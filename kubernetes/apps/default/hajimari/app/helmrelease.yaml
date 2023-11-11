@@ -38,7 +38,7 @@ spec:
       defaultEnable: true
       namespaceSelector:
         any: true
-      bookmarks:
+      bookmarkGroups:
         - group: Infrastructure
           bookmarks:
             - name: Proxmox
