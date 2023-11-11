@@ -43,7 +43,7 @@ spec:
           bookmarks:
             - name: Proxmox
               icon: simple-icons:proxmox
-              url: https://pve1.drewk.org
+              url: https://pve1.drewk.org:8006
     ingress:
       main:
         enabled: true
