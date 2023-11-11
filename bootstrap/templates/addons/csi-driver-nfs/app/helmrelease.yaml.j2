@@ -26,4 +26,4 @@ spec:
     keepHistory: false
   values:
     externalSnapshotter:
-      enabled: false
+      enabled: {{ csi_driver_nfs.volumeSnapshotEnabled | bool | to_json }}

@@ -26,36 +26,20 @@ spec:
     keepHistory: false
   values:
     hajimari:
-      title: Homelab
-      darkTheme: lime
+      title: Apps
+      darkTheme: espresso
       alwaysTargetBlank: true
       showGreeting: false
-      showAppGroups: true
-      showAppStatus: true
-      showBookmarkGroups: true
-      showGlobalBookmarks: true
+      showAppGroups: false
+      showAppStatus: false
+      showBookmarkGroups: false
+      showGlobalBookmarks: false
       showAppUrls: false
       defaultEnable: true
       namespaceSelector:
-        any: true
-      globalBookmarks:
-        - group: Infrastructure
-          bookmarks:
-            - name: Proxmox Host 1
-              icon: simple-icons:proxmox
-              url: https://pve1.drewk.org:8006
-            - name: Proxmox Host 2
-              icon: simple-icons:proxmox
-              url: https://pve2.drewk.org:8006
-            - name: PiHole
-              icon: simple-icons:pihole
-              url: http://192.168.1.204:8000/admin/index.php
-            - name: HDD NAS
-              icon: simple-icons:synology
-              url: http://192.168.1.204:5000/
-            - name: SSD NAS
-              icon: simple-icons:synology
-              url: http://192.168.1.6:5000/
+        matchNames:
+          - default
+          - monitoring
     ingress:
       main:
         enabled: true

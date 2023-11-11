@@ -5,3 +5,6 @@ namespace: kube-system
 resources:
   - ./helmrelease.yaml
   - ./storageclass.yaml
+{% if csi_driver_nfs.volumeSnapshotEnabled %}
+  - ./volumesnapshotclass.yaml
+{% endif %}
