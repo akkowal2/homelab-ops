@@ -13,3 +13,4 @@ resources:
   {% if kubernetes_dashboard.enabled | default(false) %}
   - ./kubernetes-dashboard/ks.yaml
   {% endif %}
+  - ./node-problem-detector/ks.yaml
