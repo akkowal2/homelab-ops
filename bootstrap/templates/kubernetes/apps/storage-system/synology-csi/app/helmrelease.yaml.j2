@@ -1,0 +1,66 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: synology-csi
+  namespace: storage-system
+spec:
+  interval: 30m
+  chart:
+    spec:
+      # renovate: registryUrl=https://christian-schlichtherle.github.io/synology-csi-chart
+      chart: synology-csi
+      version: 0.9.5
+      sourceRef:
+        kind: HelmRepository
+        name: synology-csi
+        namespace: flux-system
+      interval: 30m
+  values:
+    clientInfoSecret:
+      create: false
+      name: synology-csi-secret
+    images:
+      attacher:
+        image: registry.k8s.io/sig-storage/csi-attacher
+        pullPolicy: IfNotPresent
+        tag: v4.2.0
+      nodeDriverRegistrar:
+        image: registry.k8s.io/sig-storage/csi-node-driver-registrar
+        pullPolicy: IfNotPresent
+        tag: v2.6.3
+      plugin:
+        image: ghcr.io/zebernst/synology-csi
+        pullPolicy: IfNotPresent
+        tag: v1.1.3
+      provisioner:
+        image: registry.k8s.io/sig-storage/csi-provisioner
+        pullPolicy: IfNotPresent
+        tag: v3.4.0
+      resizer:
+        image: registry.k8s.io/sig-storage/csi-resizer
+        pullPolicy: IfNotPresent
+        tag: v1.7.0
+      snapshotter:
+        image: registry.k8s.io/sig-storage/csi-snapshotter
+        pullPolicy: IfNotPresent
+        tag: v6.2.1
+    storageClasses:
+      block-ssd:
+        parameters:
+          dsm: "192.168.1.6"
+          fstype: ext4
+          location: '/volume1'
+          protocol: iscsi
+        isDefault: true
+      block-hdd:
+        parameters:
+          dsm: "192.168.1.204"
+          fstype: ext4
+          location: '/volume1'
+          protocol: iscsi
+    volumeSnapshotClasses:
+      block-ssd:
+        deletionPolicy: Delete
+      block-hdd:
+        deletionPolicy: Delete
