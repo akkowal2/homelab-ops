@@ -46,6 +46,10 @@ spec:
         pullPolicy: IfNotPresent
         tag: v6.2.1
     storageClasses:
+      delete:
+        disabled: true
+      retain:
+        disabled: true
       block-ssd:
         parameters:
           dsm: "192.168.1.6"
@@ -60,6 +64,10 @@ spec:
           location: '/volume1'
           protocol: iscsi
     volumeSnapshotClasses:
+      delete:
+        disabled: true
+      retain:
+        disabled: true
       block-ssd:
         deletionPolicy: Delete
       block-hdd:
