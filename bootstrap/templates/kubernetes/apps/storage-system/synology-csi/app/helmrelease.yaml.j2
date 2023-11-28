@@ -66,8 +66,10 @@ spec:
     volumeSnapshotClasses:
       delete:
         disabled: true
+        deletionPolicy: Delete
       retain:
         disabled: true
+        deletionPolicy: Retain
       block-ssd:
         deletionPolicy: Delete
       block-hdd:
