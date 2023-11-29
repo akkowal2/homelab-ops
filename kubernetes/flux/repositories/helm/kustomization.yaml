@@ -22,3 +22,4 @@ resources:
   - ./deliveryhero.yaml
   - ./external-secrets.yaml
   - ./synology.yaml
+  - ./backube.yaml
