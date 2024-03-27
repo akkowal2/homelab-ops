@@ -59,6 +59,7 @@ data:
     ipam:
       mode: kubernetes
     ipv4NativeRoutingCIDR: "${CLUSTER_CIDR}"
+    routingMode: native
     {% if bootstrap_ipv6_enabled | default(false) %}
     ipv6NativeRoutingCIDR: "${CLUSTER_CIDR_V6}"
     ipv6:
