@@ -6,7 +6,6 @@ metadata:
   namespace: harbor-system
 spec:
   interval: 30m
-  timeout: 15m
   chart:
     spec:
       chart: harbor
@@ -21,6 +20,7 @@ spec:
       retries: 3
   upgrade:
     cleanupOnFail: true
+    timeout: 15m
     remediation:
       retries: 3
   uninstall:
